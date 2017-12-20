@@ -5,6 +5,7 @@ module Test.Twine.Async where
 
 import           Control.Concurrent.Async (async, wait, cancel)
 import           Control.Monad.Catch (catchAll)
+import           Control.Monad.Trans.Either
 
 import           Disorder.Core.IO
 
@@ -17,8 +18,6 @@ import           Test.QuickCheck
 import           Twine.Async
 import           Twine.Data
 import           Twine.Snooze (snooze)
-
-import           X.Control.Monad.Trans.Either
 
 prop_wait_no_timeout = testIO $ do
   a <- async . snooze $ microseconds 5

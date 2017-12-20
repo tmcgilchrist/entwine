@@ -3,6 +3,7 @@
 {-# LANGUAGE TemplateHaskell   #-}
 import           Control.Concurrent
 import           Control.Monad.IO.Class (liftIO)
+import           Control.Monad.Trans.Either
 
 import           Criterion.Main
 import           Criterion.Types (Config (..))
@@ -15,9 +16,6 @@ import           P
 import           System.IO
 
 import           Test.QuickCheck.Instances ()
-
-import           X.Control.Monad.Trans.Either
-
 
 run_ :: EitherT (RunError ()) IO a -> IO a
 run_ =

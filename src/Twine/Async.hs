@@ -14,8 +14,8 @@ import           Control.Concurrent.Async (async, cancel, wait)
 import           Control.Concurrent.STM (atomically, orElse, retry)
 import           Control.Exception.Base (AsyncException (..))
 import           Control.Monad.Catch (catch, throwM)
-
 import           Control.Monad.IO.Class (liftIO)
+import           Control.Monad.Trans.Either
 
 import           Data.IORef (newIORef, readIORef, writeIORef)
 import qualified Data.Text as T
@@ -25,8 +25,6 @@ import           P
 import           Twine.Snooze
 
 import           System.IO (IO)
-
-import           X.Control.Monad.Trans.Either
 
 data AsyncTimeout =
   AsyncTimeout Duration

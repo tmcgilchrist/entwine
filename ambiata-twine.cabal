@@ -15,7 +15,6 @@ library
   build-depends:
                        base                            >= 3          && < 5
                      , ambiata-p
-                     , ambiata-x-eithert
                      , async                           >= 2.0        && < 2.2
                      , exceptions                      >= 0.6        && < 0.9
                      , monad-loops                     == 0.4.*
@@ -24,6 +23,7 @@ library
                      , text                            == 1.2.*
                      , time                            >= 1.4        && < 1.9
                      , transformers                    >= 0.3        && < 0.6
+                     , transformers-either             == 0.0.1
 
   ghc-options:
                        -Wall
@@ -62,12 +62,12 @@ test-suite test
                      , ambiata-twine
                      , ambiata-disorder-core
                      , ambiata-p
-                     , ambiata-x-eithert
                      , async                           >= 2.0        && < 2.2
                      , exceptions                      >= 0.6        && < 0.9
                      , text                            == 1.2.*
                      , time
                      , transformers                    >= 0.3        && < 0.6
+                     , transformers-either             == 0.0.1
                      , QuickCheck                      == 2.8.*
                      , quickcheck-instances            == 0.3.*
 
@@ -86,11 +86,11 @@ test-suite test-io
                      , ambiata-twine
                      , ambiata-disorder-core
                      , ambiata-p
-                     , ambiata-x-eithert
                      , async                           >= 2.0        && < 2.2
                      , exceptions
                      , text
                      , time
+                     , transformers-either
                      , QuickCheck                      == 2.8.*
                      , quickcheck-instances            == 0.3.*
 
@@ -102,7 +102,6 @@ benchmark bench
   build-depends:       base
                      , ambiata-twine
                      , ambiata-p
-                     , ambiata-x-eithert
                      , criterion                       == 1.1.*
                      , QuickCheck
                      , quickcheck-instances            == 0.3.*
@@ -111,3 +110,4 @@ benchmark bench
                      , random
                      , text
                      , transformers
+                     , transformers-either            

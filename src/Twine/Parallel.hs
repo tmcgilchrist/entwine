@@ -12,14 +12,15 @@ module Twine.Parallel (
   ) where
 
 
-import           Control.Concurrent.MVar (newEmptyMVar, takeMVar, putMVar)
 import           Control.Concurrent (threadDelay)
 import           Control.Concurrent.Async (async, cancel, poll, waitBoth, wait, waitEither)
 import           Control.Concurrent.MSem (new, signal)
 import qualified Control.Concurrent.MSem as M
+import           Control.Concurrent.MVar (newEmptyMVar, takeMVar, putMVar)
 import           Control.Monad.Catch
 import           Control.Monad.IO.Class
 import           Control.Monad.Loops (untilM_)
+import           Control.Monad.Trans.Either
 
 import qualified Data.Text as T
 import           Data.Typeable
@@ -31,9 +32,6 @@ import           Twine.Data.Parallel
 import           Twine.Data.Queue
 
 import           System.IO
-
-import           X.Control.Monad.Trans.Either
-
 
 -- | Provide a producer and an action to be run across the result
 --   of that producer in parallel.
