@@ -1,4 +1,4 @@
-import           Disorder.Core.Main
+import           Test.Disorder (disorderMain)
 
 import qualified Test.IO.Twine.Guard
 import qualified Test.IO.Twine.Loop

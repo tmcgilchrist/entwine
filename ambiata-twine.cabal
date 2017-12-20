@@ -60,10 +60,11 @@ test-suite test
   build-depends:
                        base                            >= 3          && < 5
                      , ambiata-twine
-                     , ambiata-disorder-core
                      , ambiata-p
                      , async                           >= 2.0        && < 2.2
+                     , directory                       >= 1.2        && < 1.4
                      , exceptions                      >= 0.6        && < 0.9
+                     , process                         >= 1.2        && < 1.5
                      , text                            == 1.2.*
                      , time
                      , transformers                    >= 0.3        && < 0.6
@@ -84,10 +85,11 @@ test-suite test-io
   build-depends:
                        base                            >= 3          && < 5
                      , ambiata-twine
-                     , ambiata-disorder-core
                      , ambiata-p
                      , async                           >= 2.0        && < 2.2
+                     , directory                       >= 1.2        && < 1.4
                      , exceptions
+                     , process                         >= 1.2        && < 1.5
                      , text
                      , time
                      , transformers-either
@@ -103,6 +105,8 @@ benchmark bench
                      , ambiata-twine
                      , ambiata-p
                      , criterion                       == 1.1.*
+                     , directory                       >= 1.2        && < 1.4
+                     , process                         >= 1.2        && < 1.5
                      , QuickCheck
                      , quickcheck-instances            == 0.3.*
                      , quickcheck-properties           == 0.1.*

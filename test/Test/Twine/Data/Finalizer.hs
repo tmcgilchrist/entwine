@@ -3,7 +3,7 @@
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
 module Test.Twine.Data.Finalizer where
 
-import           Disorder.Core.IO
+import           Test.Disorder (testIO)
 
 import           P
 

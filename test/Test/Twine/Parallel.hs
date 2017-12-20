@@ -8,7 +8,7 @@ import           Control.Monad.Catch
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Either
 
-import           Disorder.Core.IO
+import           Test.Disorder (testIO)
 
 import           P
 

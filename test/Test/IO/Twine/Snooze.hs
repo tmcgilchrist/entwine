@@ -6,7 +6,7 @@ module Test.IO.Twine.Snooze where
 
 import           Data.Time
 
-import           Disorder.Core.IO
+import           Test.Disorder
 
 import           P
 

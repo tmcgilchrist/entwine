@@ -7,7 +7,7 @@ import           Control.Concurrent.Async (async, wait, cancel)
 import           Control.Monad.Catch (catchAll)
 import           Control.Monad.Trans.Either
 
-import           Disorder.Core.IO
+import           Test.Disorder (testIO)
 
 import           P
 
