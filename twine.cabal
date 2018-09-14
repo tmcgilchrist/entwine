@@ -1,9 +1,9 @@
-name:                  ambiata-twine
+name:                  twine
 version:               0.0.1
-license:               Apache-2.0
+license:               BSD3
 license-file:          LICENSE
 author:                Ambiata <info@ambiata.com>
-maintainer:            Ambiata <info@ambiata.com>
+maintainer:            Tim McGilchrist <timmcgil@gmail.com>
 copyright:             (c) 2015 Ambiata.
 synopsis:              twine
 category:              System
@@ -14,8 +14,8 @@ description:           twine.
 library
   build-depends:
                        base                            >= 3          && < 5
-                     , ambiata-p
                      , async                           >= 2.0        && < 2.2
+                     , containers                      >= 0.5        && < 0.7
                      , exceptions                      >= 0.6        && < 0.9
                      , monad-loops                     == 0.4.*
                      , SafeSemaphore                   == 0.10.*
@@ -44,6 +44,7 @@ library
                        Twine.Data.Queue
                        Twine.Loop
                        Twine.Parallel
+                       Twine.P
                        Twine.Snooze
                        Twine.Guard
 
@@ -59,7 +60,7 @@ test-suite test
 
   build-depends:
                        base                            >= 3          && < 5
-                     , ambiata-twine
+                     , twine
                      , ambiata-p
                      , async                           >= 2.0        && < 2.2
                      , directory                       >= 1.2        && < 1.4
@@ -84,7 +85,7 @@ test-suite test-io
 
   build-depends:
                        base                            >= 3          && < 5
-                     , ambiata-twine
+                     , twine
                      , ambiata-p
                      , async                           >= 2.0        && < 2.2
                      , directory                       >= 1.2        && < 1.4
@@ -102,7 +103,7 @@ benchmark bench
   ghc-options:         -Wall -threaded -O2
   hs-source-dirs:      test
   build-depends:       base
-                     , ambiata-twine
+                     , twine
                      , ambiata-p
                      , criterion                       == 1.1.*
                      , directory                       >= 1.2        && < 1.4

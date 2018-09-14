@@ -3,7 +3,7 @@ module Twine.Data.Finalizer (
     Finalizer (..)
   ) where
 
-import           P
+import           Twine.P
 
 import           System.IO
 

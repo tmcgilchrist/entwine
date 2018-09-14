@@ -25,11 +25,10 @@ import           Control.Monad.Trans.Either
 import qualified Data.Text as T
 import           Data.Typeable
 
-import           P
-
 import           Twine.Async (waitEitherBoth)
 import           Twine.Data.Parallel
 import           Twine.Data.Queue
+import           Twine.P
 
 import           System.IO
 

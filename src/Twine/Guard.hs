@@ -10,10 +10,9 @@ import           Control.Monad.Catch
 import           Control.Monad.Trans.Class
 import           Control.Monad.Trans.Either
 
-import           P
-
 import           System.IO
 
+import           Twine.P
 import           Twine.Snooze
 
 data TerminationAction =

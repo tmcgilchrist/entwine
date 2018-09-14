@@ -9,7 +9,7 @@ module Twine.Data.Pin (
 
 import           Control.Concurrent.MVar
 
-import           P
+import           Twine.P
 
 import           System.IO
 

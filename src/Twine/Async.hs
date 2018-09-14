@@ -20,8 +20,7 @@ import           Control.Monad.Trans.Either
 import           Data.IORef (newIORef, readIORef, writeIORef)
 import qualified Data.Text as T
 
-import           P
-
+import           Twine.P
 import           Twine.Snooze
 
 import           System.IO (IO)

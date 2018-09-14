@@ -13,7 +13,7 @@ module Twine.Data.Duration (
   , toSeconds
   ) where
 
-import           P
+import           Twine.P
 
 -- |
 -- A Duration is an abstract type, representing a short delay (in the
