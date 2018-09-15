@@ -14,7 +14,7 @@ description:           twine.
 library
   build-depends:
                        base                            >= 3          && < 5
-                     , async                           >= 2.0        && < 2.2
+                     , async                           >= 2.0        && < 2.3
                      , containers                      >= 0.5        && < 0.7
                      , exceptions                      >= 0.6        && < 0.9
                      , monad-loops                     == 0.4.*
@@ -23,7 +23,7 @@ library
                      , text                            == 1.2.*
                      , time                            >= 1.4        && < 1.9
                      , transformers                    >= 0.3        && < 0.6
-                     , transformers-either             == 0.0.1
+                     , transformers-either             == 0.1.*
 
   ghc-options:
                        -Wall
@@ -61,16 +61,15 @@ test-suite test
   build-depends:
                        base                            >= 3          && < 5
                      , twine
-                     , ambiata-p
-                     , async                           >= 2.0        && < 2.2
+                     , async                           >= 2.0        && < 2.3
                      , directory                       >= 1.2        && < 1.4
                      , exceptions                      >= 0.6        && < 0.9
-                     , process                         >= 1.2        && < 1.5
+                     , process                         >= 1.2        && < 1.7
                      , text                            == 1.2.*
                      , time
                      , transformers                    >= 0.3        && < 0.6
-                     , transformers-either             == 0.0.1
-                     , QuickCheck                      == 2.8.*
+                     , transformers-either             == 0.1.*
+                     , QuickCheck                      >= 2.8        && < 2.12
                      , quickcheck-instances            == 0.3.*
 
 test-suite test-io
@@ -86,15 +85,14 @@ test-suite test-io
   build-depends:
                        base                            >= 3          && < 5
                      , twine
-                     , ambiata-p
-                     , async                           >= 2.0        && < 2.2
+                     , async                           >= 2.0        && < 2.3
                      , directory                       >= 1.2        && < 1.4
                      , exceptions
-                     , process                         >= 1.2        && < 1.5
+                     , process                         >= 1.2        && < 1.7
                      , text
                      , time
                      , transformers-either
-                     , QuickCheck                      == 2.8.*
+                     , QuickCheck                      >= 2.8        && < 2.12
                      , quickcheck-instances            == 0.3.*
 
 benchmark bench
@@ -104,10 +102,9 @@ benchmark bench
   hs-source-dirs:      test
   build-depends:       base
                      , twine
-                     , ambiata-p
-                     , criterion                       == 1.1.*
+                     , criterion                       >= 1.2        && < 1.6
                      , directory                       >= 1.2        && < 1.4
-                     , process                         >= 1.2        && < 1.5
+                     , process                         >= 1.2        && < 1.7
                      , QuickCheck
                      , quickcheck-instances            == 0.3.*
                      , quickcheck-properties           == 0.1.*

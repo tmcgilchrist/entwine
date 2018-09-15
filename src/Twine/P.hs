@@ -21,6 +21,7 @@ module Twine.P (
   , Int32
   , Int64
   , div
+  , toInteger
   -- ** Word
   , Word64
   -- ** Real
@@ -30,9 +31,10 @@ module Twine.P (
   , Double
 
   -- * Algebraic structures
+  -- ** Semigroup
+  , Semigroup (..)
   -- ** Monoid
   , Monoid (..)
-  , (<>)
   -- ** Functor
   , Functor (..)
   , (<$>)
@@ -76,6 +78,7 @@ module Twine.P (
   -- ** Either
   , Either (..)
   , either
+  , isRight
   -- ** Maybe
   , Maybe (..)
   , fromMaybe
@@ -199,6 +202,7 @@ import           Data.Char as Char (
 import           Data.Either as Either (
            Either (..)
          , either
+         , isRight
          )
 import           Data.Foldable as Foldable (
            Foldable (..)
@@ -246,9 +250,11 @@ import           Data.Maybe as Maybe (
          , catMaybes
          , listToMaybe
          )
+import           Data.Semigroup as Semigroup (
+           Semigroup (..)
+         )
 import           Data.Monoid as Monoid (
            Monoid (..)
-         , (<>)
          )
 import           Data.Ord as Ord (
            Ord (..)
@@ -303,6 +309,7 @@ import           Prelude as Prelude (
            Enum
          , Num (..)
          , Integer
+         , toInteger
          , seq
          , ($!)
          )

@@ -4,7 +4,7 @@
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
 module Test.Twine.Data.Queue where
 
-import           P
+import           Twine.P
 
 import           System.IO
 

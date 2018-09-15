@@ -1,6 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE TemplateHaskell   #-}
 import           Control.Concurrent
 import           Control.Monad.IO.Class (liftIO)
 import           Control.Monad.Trans.Either
@@ -11,7 +10,7 @@ import           Criterion.Types (Config (..))
 import           Twine.Data
 import           Twine.Parallel
 
-import           P
+import           Twine.P
 
 import           System.IO
 

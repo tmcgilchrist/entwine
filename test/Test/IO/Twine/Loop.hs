@@ -9,7 +9,7 @@ import           Control.Monad.Trans.Either (runEitherT)
 
 import           Test.Disorder
 
-import           P
+import           Twine.P
 
 import           Test.QuickCheck
 

@@ -7,7 +7,7 @@ module Test.Twine.Data.Parallel where
 
 import           Test.Disorder (testIO)
 
-import           P
+import           Twine.P
 
 import           System.IO
 

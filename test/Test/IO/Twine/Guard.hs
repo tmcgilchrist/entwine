@@ -1,6 +1,5 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE TemplateHaskell #-}
-{-# LANGUAGE TemplateHaskell #-}
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
 module Test.IO.Twine.Guard where
 
@@ -10,7 +9,7 @@ import           Control.Monad.Trans.Either
 
 import           Test.Disorder
 
-import           P
+import           Twine.P
 
 import           System.IO
 import           System.IO.Error

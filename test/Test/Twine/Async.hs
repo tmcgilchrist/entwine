@@ -9,7 +9,7 @@ import           Control.Monad.Trans.Either
 
 import           Test.Disorder (testIO)
 
-import           P
+import           Twine.P
 
 import           System.IO
 

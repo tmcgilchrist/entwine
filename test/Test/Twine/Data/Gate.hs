@@ -5,7 +5,7 @@ module Test.Twine.Data.Gate where
 
 import           Test.Disorder (testIO)
 
-import           P
+import           Twine.P
 
 import           Test.QuickCheck
 

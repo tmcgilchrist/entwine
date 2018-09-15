@@ -7,7 +7,7 @@ import           Control.Concurrent.Async (async, waitBoth)
 
 import           Test.Disorder (testIO)
 
-import           P
+import           Twine.P
 
 import           Test.QuickCheck (quickCheckAll, once, (===))
 

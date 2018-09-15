@@ -1,8 +1,8 @@
+{-# LANGUAGE RankNTypes #-}
 module Test.Disorder (
     testIO
-  , testPropertyIO
   , withCPUTime
-  ,  disorderMain
+  , disorderMain
   , disorderCliMain
   ) where
 
@@ -18,11 +18,8 @@ import           System.Exit
 import           System.IO
 import           System.CPUTime (getCPUTime)
 
-testIO :: Testable a => IO a -> Property
-testIO = testPropertyIO . run
-
-testPropertyIO :: Testable a => PropertyM IO a -> Property
-testPropertyIO = monadicIO . (=<<) stop
+testIO :: (Testable a) => IO a -> Property
+testIO = monadicIO . run
 
 -- | Perform an action and return the CPU time it takes, in picoseconds
 -- (actual precision varies with implementation).

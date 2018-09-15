@@ -3,7 +3,7 @@
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
 module Test.Twine.Data.Duration where
 
-import           P
+import           Twine.P
 
 import           System.IO
 

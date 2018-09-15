@@ -5,7 +5,7 @@ module Test.Twine.Data.Finalizer where
 
 import           Test.Disorder (testIO)
 
-import           P
+import           Twine.P
 
 import           System.IO
 
