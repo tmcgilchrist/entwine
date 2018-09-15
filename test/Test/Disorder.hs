@@ -1,4 +1,5 @@
 {-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE ScopedTypeVariables #-}
 module Test.Disorder (
     testIO
   , withCPUTime
@@ -18,8 +19,10 @@ import           System.Exit
 import           System.IO
 import           System.CPUTime (getCPUTime)
 
-testIO :: (Testable a) => IO a -> Property
-testIO = monadicIO . run
+testIO :: forall a. (Testable a) => IO a -> Property
+testIO mx = monadicIO $ do
+  p <- (run mx)
+  stop p :: PropertyM IO a
 
 -- | Perform an action and return the CPU time it takes, in picoseconds
 -- (actual precision varies with implementation).

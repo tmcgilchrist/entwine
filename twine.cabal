@@ -69,7 +69,7 @@ test-suite test
                      , time
                      , transformers                    >= 0.3        && < 0.6
                      , transformers-either             == 0.1.*
-                     , QuickCheck                      >= 2.8        && < 2.12
+                     , QuickCheck                      == 2.10.*
                      , quickcheck-instances            == 0.3.*
 
 test-suite test-io
@@ -92,7 +92,7 @@ test-suite test-io
                      , text
                      , time
                      , transformers-either
-                     , QuickCheck                      >= 2.8        && < 2.12
+                     , QuickCheck                      == 2.10.*
                      , quickcheck-instances            == 0.3.*
 
 benchmark bench
