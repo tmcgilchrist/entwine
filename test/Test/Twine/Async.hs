@@ -24,17 +24,17 @@ prop_wait_no_timeout = testIO $ do
   e <- runEitherT $ waitWithTimeout a (microseconds 10)
   pure $ e === Right ()
 
-prop_wait_timeout = testIO $ do
-  a <- async $ (snooze $ milliseconds 20)
-  e <- runEitherT $ waitWithTimeout a (milliseconds 5)
-  pure $ e === Left (AsyncTimeout (milliseconds 5))
-
 prop_cancel_outside = testIO $ do
   a <- async $ (snooze (milliseconds 20) >> pure True)
   e <- async $ runEitherT $ waitWithTimeout a (milliseconds 5)
   cancel a
   r <- wait e `catchAll` (\_ -> pure . Right $ False)
   pure $ r === Right False
+
+prop_wait_timeout = testIO $ do
+  a <- async $ (snooze $ milliseconds 20)
+  e <- runEitherT $ waitWithTimeout a (milliseconds 5)
+  pure $ e === Left (AsyncTimeout (milliseconds 5))
 
 return []
 tests :: IO Bool

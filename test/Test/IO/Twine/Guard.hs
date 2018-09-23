@@ -51,7 +51,7 @@ prop_guard_explosion =
 
 withThread :: MVar HResult -> EitherT Text IO () -> IO a -> IO a
 withThread v action =
-  bracket (forkIO $ guarded (handler v) action) (killThread) . const
+  bracket (forkIO $ guarded (handler v) action) killThread . const
 
 return []
 tests :: IO Bool
