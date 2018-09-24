@@ -26,3 +26,12 @@ install:
 
 script:
  - bin/travis_script
+
+deploy:
+  skip_cleanup: true
+  provider: hackage
+  username: $HACKAGE_USERNAME
+  password: $HACKAGE_PASSWORD
+  on:
+    repo: tmcgilchrist/twine
+    tags: true
