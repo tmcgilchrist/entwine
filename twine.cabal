@@ -4,12 +4,23 @@ license:               BSD3
 license-file:          LICENSE
 author:                Ambiata <info@ambiata.com>
 maintainer:            Tim McGilchrist <timmcgil@gmail.com>
+homepage:              https://github.com/tmcgilchrist/twine
+bug-reports:           https://github.com/tmcgilchrist/twine/issues
 copyright:             (c) 2015 Ambiata.
-synopsis:              twine
+synopsis:              twine - Concurrency tools
 category:              System
 cabal-version:         >= 1.8
 build-type:            Simple
-description:           twine.
+description:           twine - Concurrency tools
+
+tested-with: GHC == 8.0.2, GHC == 8.2.2
+extra-source-files:
+  README.md
+  Changes.md
+
+source-repository head
+    type:             git
+    location:         https://github.com/tmcgilchrist/twine.git
 
 library
   build-depends:
