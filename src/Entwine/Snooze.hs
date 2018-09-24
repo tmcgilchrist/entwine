@@ -1,13 +1,13 @@
 {-# LANGUAGE NoImplicitPrelude #-}
-module Twine.Snooze (
+module Entwine.Snooze (
     snooze
-  , module Twine.Data.Duration
+  , module Entwine.Data.Duration
   ) where
 
 import           Control.Concurrent
 
-import           Twine.P
-import           Twine.Data.Duration
+import           Entwine.P
+import           Entwine.Data.Duration
 
 import           System.IO (IO)
 

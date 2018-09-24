@@ -1,15 +1,15 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
-module Test.Twine.Data.Gate where
+module Test.Entwine.Data.Gate where
 
 import           Test.Disorder (testIO)
 
-import           Twine.P
+import           Entwine.P
 
 import           Test.QuickCheck
 
-import           Twine.Data.Gate
+import           Entwine.Data.Gate
 
 --
 -- A new gate should isOpen

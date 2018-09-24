@@ -1,15 +1,15 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
-module Test.Twine.Data.Duration where
+module Test.Entwine.Data.Duration where
 
-import           Twine.P
+import           Entwine.P
 
 import           System.IO
 
 import           Test.QuickCheck
 
-import           Twine.Data.Duration
+import           Entwine.Data.Duration
 
 --
 -- Symmetric conversions

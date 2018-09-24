@@ -1,5 +1,5 @@
 {-# LANGUAGE NoImplicitPrelude #-}
-module Twine.Guard (
+module Entwine.Guard (
     TerminationAction (..)
   , TerminationHandler (..)
   , guarded
@@ -12,8 +12,8 @@ import           Control.Monad.Trans.Either
 
 import           System.IO
 
-import           Twine.P
-import           Twine.Snooze
+import           Entwine.P
+import           Entwine.Snooze
 
 data TerminationAction =
     Restart

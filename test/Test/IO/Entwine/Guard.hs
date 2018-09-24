@@ -1,7 +1,7 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
-module Test.IO.Twine.Guard where
+module Test.IO.Entwine.Guard where
 
 import           Control.Concurrent
 import           Control.Monad.Catch
@@ -9,7 +9,7 @@ import           Control.Monad.Trans.Either
 
 import           Test.Disorder
 
-import           Twine.P
+import           Entwine.P
 
 import           System.IO
 import           System.IO.Error
@@ -17,7 +17,7 @@ import           System.IO.Error
 import           Test.QuickCheck
 import           Test.QuickCheck.Instances ()
 
-import           Twine.Guard
+import           Entwine.Guard
 
 data HResult =
   HExplosion | HError Text | HGraceful deriving (Eq, Show)

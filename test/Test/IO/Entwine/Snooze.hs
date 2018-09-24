@@ -1,19 +1,19 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
-module Test.IO.Twine.Snooze where
+module Test.IO.Entwine.Snooze where
 
 import           Data.Time
 
 import           Test.Disorder
 
-import           Twine.P
+import           Entwine.P
 
 import           System.IO
 
 import           Test.QuickCheck
 
-import           Twine.Snooze
+import           Entwine.Snooze
 
 
 prop_snooze = forAll (choose (1, 3)) $ \n -> testIO $ do

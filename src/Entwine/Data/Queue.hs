@@ -1,5 +1,5 @@
 {-# LANGUAGE NoImplicitPrelude #-}
-module Twine.Data.Queue (
+module Entwine.Data.Queue (
     Queue
   , newQueue
   , readQueue
@@ -13,7 +13,7 @@ import           Control.Concurrent.STM.TBQueue ( TBQueue, newTBQueue, tryReadTB
 
 import           GHC.Conc (atomically)
 
-import           Twine.P
+import           Entwine.P
 
 import           System.IO
 

@@ -1,5 +1,5 @@
 {-# LANGUAGE NoImplicitPrelude #-}
-module Twine.Data.Parallel (
+module Entwine.Data.Parallel (
     Workers
   , Result
   , newResult
@@ -17,7 +17,7 @@ module Twine.Data.Parallel (
 import           Control.Concurrent.Async (Async, cancel, wait)
 import           Control.Concurrent.MVar
 
-import           Twine.P
+import           Entwine.P
 
 import           System.IO
 

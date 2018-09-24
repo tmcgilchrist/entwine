@@ -1,18 +1,18 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
-module Test.Twine.Data.Finalizer where
+module Test.Entwine.Data.Finalizer where
 
 import           Test.Disorder (testIO)
 
-import           Twine.P
+import           Entwine.P
 
 import           System.IO
 
 import           Test.QuickCheck
 
-import           Twine.Data.Finalizer
-import           Twine.Data.Pin
+import           Entwine.Data.Finalizer
+import           Entwine.Data.Pin
 
 
 prop_simple = once . testIO $ do

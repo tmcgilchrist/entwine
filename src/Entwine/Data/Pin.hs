@@ -1,5 +1,5 @@
 {-# LANGUAGE NoImplicitPrelude #-}
-module Twine.Data.Pin (
+module Entwine.Data.Pin (
     Pin
   , newPin
   , checkPin
@@ -9,7 +9,7 @@ module Twine.Data.Pin (
 
 import           Control.Concurrent.MVar
 
-import           Twine.P
+import           Entwine.P
 
 import           System.IO
 

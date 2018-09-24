@@ -3,7 +3,7 @@
 {-# LANGUAGE ExplicitForAll #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE ScopedTypeVariables #-}
-module Twine.Parallel (
+module Entwine.Parallel (
     RunError (..)
   , renderRunError
   , consume_
@@ -25,10 +25,10 @@ import           Control.Monad.Trans.Either
 import qualified Data.Text as T
 import           Data.Typeable
 
-import           Twine.Async (waitEitherBoth)
-import           Twine.Data.Parallel
-import           Twine.Data.Queue
-import           Twine.P
+import           Entwine.Async (waitEitherBoth)
+import           Entwine.Data.Parallel
+import           Entwine.Data.Queue
+import           Entwine.P
 
 import           System.IO
 

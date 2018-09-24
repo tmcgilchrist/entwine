@@ -3,18 +3,18 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
-module Test.Twine.Data.Parallel where
+module Test.Entwine.Data.Parallel where
 
 import           Test.Disorder (testIO)
 
-import           Twine.P
+import           Entwine.P
 
 import           System.IO
 
 import           Test.QuickCheck
 import           Test.QuickCheck.Instances ()
 
-import           Twine.Data.Parallel
+import           Entwine.Data.Parallel
 
 prop_short_circuit = testIO $ do
   r <- newResult (Right () :: Either Text ())

@@ -1,5 +1,5 @@
 {-# LANGUAGE NoImplicitPrelude #-}
-module Twine.Data.Duration (
+module Entwine.Data.Duration (
     Duration
   , microseconds
   , milliseconds
@@ -13,7 +13,7 @@ module Twine.Data.Duration (
   , toSeconds
   ) where
 
-import           Twine.P
+import           Entwine.P
 
 -- |
 -- A Duration is an abstract type, representing a short delay (in the
