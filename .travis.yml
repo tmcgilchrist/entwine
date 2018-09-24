@@ -33,5 +33,5 @@ deploy:
   username: $HACKAGE_USERNAME
   password: $HACKAGE_PASSWORD
   on:
-    repo: tmcgilchrist/twine
+    repo: tmcgilchrist/entwine
     tags: true
