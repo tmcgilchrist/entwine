@@ -74,6 +74,7 @@ test-suite test
                      , twine
                      , async                           >= 2.0        && < 2.3
                      , directory                       >= 1.2        && < 1.4
+                     , hedgehog                        >= 0.1        && < 1
                      , exceptions                      >= 0.6        && < 0.9
                      , process                         >= 1.2        && < 1.7
                      , text                            == 1.2.*
