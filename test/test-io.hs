@@ -1,14 +1,14 @@
 import           Test.Disorder (disorderMain)
 
-import qualified Test.IO.Twine.Guard
-import qualified Test.IO.Twine.Loop
-import qualified Test.IO.Twine.Snooze
+import qualified Test.IO.Entwine.Guard
+import qualified Test.IO.Entwine.Loop
+import qualified Test.IO.Entwine.Snooze
 
 
 main :: IO ()
 main =
   disorderMain [
-      Test.IO.Twine.Guard.tests
-    , Test.IO.Twine.Loop.tests
-    , Test.IO.Twine.Snooze.tests
+      Test.IO.Entwine.Guard.tests
+    , Test.IO.Entwine.Loop.tests
+    , Test.IO.Entwine.Snooze.tests
     ]

@@ -1,17 +1,17 @@
-name:                  twine
+name:                  entwine
 version:               0.0.1
 license:               BSD3
 license-file:          LICENSE
 author:                Ambiata <info@ambiata.com>
 maintainer:            Tim McGilchrist <timmcgil@gmail.com>
-homepage:              https://github.com/tmcgilchrist/twine
-bug-reports:           https://github.com/tmcgilchrist/twine/issues
+homepage:              https://github.com/tmcgilchrist/entwine
+bug-reports:           https://github.com/tmcgilchrist/entwine/issues
 copyright:             (c) 2015 Ambiata.
-synopsis:              twine - Concurrency tools
+synopsis:              entwine - Concurrency tools
 category:              System
 cabal-version:         >= 1.8
 build-type:            Simple
-description:           twine - Concurrency tools
+description:           entwine - Concurrency tools
 
 tested-with: GHC == 8.0.2, GHC == 8.2.2
 extra-source-files:
@@ -20,7 +20,7 @@ extra-source-files:
 
 source-repository head
     type:             git
-    location:         https://github.com/tmcgilchrist/twine.git
+    location:         https://github.com/tmcgilchrist/entwine.git
 
 library
   build-depends:
@@ -44,20 +44,20 @@ library
 
 
   exposed-modules:
-                       Twine
-                       Twine.Async
-                       Twine.Data
-                       Twine.Data.Duration
-                       Twine.Data.Finalizer
-                       Twine.Data.Gate
-                       Twine.Data.Parallel
-                       Twine.Data.Pin
-                       Twine.Data.Queue
-                       Twine.Loop
-                       Twine.Parallel
-                       Twine.P
-                       Twine.Snooze
-                       Twine.Guard
+                       Entwine
+                       Entwine.Async
+                       Entwine.Data
+                       Entwine.Data.Duration
+                       Entwine.Data.Finalizer
+                       Entwine.Data.Gate
+                       Entwine.Data.Parallel
+                       Entwine.Data.Pin
+                       Entwine.Data.Queue
+                       Entwine.Loop
+                       Entwine.Parallel
+                       Entwine.P
+                       Entwine.Snooze
+                       Entwine.Guard
 
 test-suite test
   type:                exitcode-stdio-1.0
@@ -71,7 +71,7 @@ test-suite test
 
   build-depends:
                        base                            >= 3          && < 5
-                     , twine
+                     , entwine
                      , async                           >= 2.0        && < 2.3
                      , directory                       >= 1.2        && < 1.4
                      , exceptions                      >= 0.6        && < 0.9
@@ -95,7 +95,7 @@ test-suite test-io
 
   build-depends:
                        base                            >= 3          && < 5
-                     , twine
+                     , entwine
                      , async                           >= 2.0        && < 2.3
                      , directory                       >= 1.2        && < 1.4
                      , exceptions
@@ -112,7 +112,7 @@ benchmark bench
   ghc-options:         -Wall -threaded -O2
   hs-source-dirs:      test
   build-depends:       base
-                     , twine
+                     , entwine
                      , criterion                       >= 1.2        && < 1.6
                      , directory                       >= 1.2        && < 1.4
                      , process                         >= 1.2        && < 1.7

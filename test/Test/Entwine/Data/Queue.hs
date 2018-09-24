@@ -2,9 +2,9 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
-module Test.Twine.Data.Queue where
+module Test.Entwine.Data.Queue where
 
-import           Twine.P
+import           Entwine.P
 
 import           System.IO
 
@@ -12,7 +12,7 @@ import           Test.Disorder
 import           Test.QuickCheck
 import           Test.QuickCheck.Instances ()
 
-import           Twine.Data.Queue
+import           Entwine.Data.Queue
 
 prop_read_write (a :: Int) = testIO $ do
   q <- newQueue 1

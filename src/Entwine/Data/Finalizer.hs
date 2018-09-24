@@ -1,9 +1,9 @@
 {-# LANGUAGE NoImplicitPrelude #-}
-module Twine.Data.Finalizer (
+module Entwine.Data.Finalizer (
     Finalizer (..)
   ) where
 
-import           Twine.P
+import           Entwine.P
 
 import           System.IO
 

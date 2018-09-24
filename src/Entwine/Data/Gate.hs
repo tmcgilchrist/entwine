@@ -1,5 +1,5 @@
 {-# LANGUAGE NoImplicitPrelude #-}
-module Twine.Data.Gate (
+module Entwine.Data.Gate (
     Gate
   , newGate
   , isOpen
@@ -8,7 +8,7 @@ module Twine.Data.Gate (
 
 import           Data.IORef (IORef, newIORef, readIORef, atomicWriteIORef)
 
-import           Twine.P
+import           Entwine.P
 
 import           System.IO
 

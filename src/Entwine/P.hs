@@ -2,7 +2,7 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE PatternSynonyms #-}
 {-# LANGUAGE LambdaCase #-}
-module Twine.P (
+module Entwine.P (
   -- * Primitive types
   -- ** Bool
     Bool (..)

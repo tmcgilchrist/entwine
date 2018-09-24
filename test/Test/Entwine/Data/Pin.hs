@@ -1,17 +1,17 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
-module Test.Twine.Data.Pin where
+module Test.Entwine.Data.Pin where
 
 import           Control.Concurrent.Async (async, waitBoth)
 
 import           Test.Disorder (testIO)
 
-import           Twine.P
+import           Entwine.P
 
 import           Test.QuickCheck (quickCheckAll, once, (===))
 
-import           Twine.Data.Pin
+import           Entwine.Data.Pin
 
 
 --

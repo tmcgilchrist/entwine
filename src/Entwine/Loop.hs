@@ -1,15 +1,15 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE LambdaCase #-}
-module Twine.Loop (
+module Entwine.Loop (
     loop
   ) where
 
 import           Control.Monad.IO.Class (MonadIO, liftIO)
 
-import           Twine.Data.Gate
-import           Twine.Data.Duration
-import           Twine.P
-import           Twine.Snooze
+import           Entwine.Data.Gate
+import           Entwine.Data.Duration
+import           Entwine.P
+import           Entwine.Snooze
 
 -- | Loop with a delay until the gate is closed
 --

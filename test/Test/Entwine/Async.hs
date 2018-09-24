@@ -1,7 +1,7 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
-module Test.Twine.Async where
+module Test.Entwine.Async where
 
 import           Control.Concurrent.Async (async, wait, cancel)
 import           Control.Monad.Catch (catchAll)
@@ -9,15 +9,15 @@ import           Control.Monad.Trans.Either
 
 import           Test.Disorder (testIO)
 
-import           Twine.P
+import           Entwine.P
 
 import           System.IO
 
 import           Test.QuickCheck
 
-import           Twine.Async
-import           Twine.Data
-import           Twine.Snooze (snooze)
+import           Entwine.Async
+import           Entwine.Data
+import           Entwine.Snooze (snooze)
 
 prop_wait_no_timeout = testIO $ do
   a <- async . snooze $ microseconds 5

@@ -1,7 +1,7 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
-module Test.Twine.Parallel where
+module Test.Entwine.Parallel where
 
 import           Control.Concurrent.MVar
 import           Control.Monad.Catch
@@ -10,15 +10,15 @@ import           Control.Monad.Trans.Either
 
 import           Test.Disorder (testIO)
 
-import           Twine.P
+import           Entwine.P
 
 import           System.IO
 import           System.IO.Error
 
 import           Test.QuickCheck
 
-import           Twine.Data
-import           Twine.Parallel
+import           Entwine.Data
+import           Entwine.Parallel
 
 data Fail =
   IFailed

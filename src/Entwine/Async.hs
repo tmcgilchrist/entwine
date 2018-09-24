@@ -1,7 +1,7 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ScopedTypeVariables #-}
-module Twine.Async (
+module Entwine.Async (
     AsyncTimeout (..)
   , renderAsyncTimeout
   , waitWithTimeout
@@ -20,8 +20,8 @@ import           Control.Monad.Trans.Either
 import           Data.IORef (newIORef, readIORef, writeIORef)
 import qualified Data.Text as T
 
-import           Twine.P
-import           Twine.Snooze
+import           Entwine.P
+import           Entwine.Snooze
 
 import           System.IO (IO)
 
