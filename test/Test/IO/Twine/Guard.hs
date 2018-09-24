@@ -1,15 +1,15 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE TemplateHaskell #-}
-{-# LANGUAGE TemplateHaskell #-}
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
 module Test.IO.Twine.Guard where
 
 import           Control.Concurrent
 import           Control.Monad.Catch
+import           Control.Monad.Trans.Either
 
-import           Disorder.Core.IO
+import           Test.Disorder
 
-import           P
+import           Twine.P
 
 import           System.IO
 import           System.IO.Error
@@ -18,8 +18,6 @@ import           Test.QuickCheck
 import           Test.QuickCheck.Instances ()
 
 import           Twine.Guard
-
-import           X.Control.Monad.Trans.Either
 
 data HResult =
   HExplosion | HError Text | HGraceful deriving (Eq, Show)
@@ -53,7 +51,7 @@ prop_guard_explosion =
 
 withThread :: MVar HResult -> EitherT Text IO () -> IO a -> IO a
 withThread v action =
-  bracket (forkIO $ guarded (handler v) action) (killThread) . const
+  bracket (forkIO $ guarded (handler v) action) killThread . const
 
 return []
 tests :: IO Bool

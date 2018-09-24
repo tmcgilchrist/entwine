@@ -5,9 +5,9 @@ module Test.Twine.Data.Pin where
 
 import           Control.Concurrent.Async (async, waitBoth)
 
-import           Disorder.Core.IO (testIO)
+import           Test.Disorder (testIO)
 
-import           P
+import           Twine.P
 
 import           Test.QuickCheck (quickCheckAll, once, (===))
 

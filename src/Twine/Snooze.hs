@@ -6,12 +6,10 @@ module Twine.Snooze (
 
 import           Control.Concurrent
 
-import           P
-
-import           System.IO
-
+import           Twine.P
 import           Twine.Data.Duration
 
+import           System.IO (IO)
 
 snooze :: Duration -> IO ()
 snooze =

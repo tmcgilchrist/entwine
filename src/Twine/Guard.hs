@@ -8,15 +8,12 @@ module Twine.Guard (
 
 import           Control.Monad.Catch
 import           Control.Monad.Trans.Class
-
-import           P
+import           Control.Monad.Trans.Either
 
 import           System.IO
 
+import           Twine.P
 import           Twine.Snooze
-
-import           X.Control.Monad.Trans.Either
-
 
 data TerminationAction =
     Restart

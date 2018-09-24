@@ -8,7 +8,7 @@ module Twine.Data.Gate (
 
 import           Data.IORef (IORef, newIORef, readIORef, atomicWriteIORef)
 
-import           P
+import           Twine.P
 
 import           System.IO
 

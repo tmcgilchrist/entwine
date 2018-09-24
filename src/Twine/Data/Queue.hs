@@ -8,11 +8,12 @@ module Twine.Data.Queue (
   , isQueueEmpty
   ) where
 
-import           Control.Concurrent.STM.TBQueue (TBQueue, newTBQueue, tryReadTBQueue, readTBQueue, writeTBQueue, isEmptyTBQueue)
+import           Control.Concurrent.STM.TBQueue ( TBQueue, newTBQueue, tryReadTBQueue
+                                                , readTBQueue, writeTBQueue, isEmptyTBQueue)
 
 import           GHC.Conc (atomically)
 
-import           P
+import           Twine.P
 
 import           System.IO
 

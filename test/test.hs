@@ -1,4 +1,4 @@
-import           Disorder.Core.Main
+import           Test.Disorder (disorderMain)
 
 import           Test.Twine.Async
 import           Test.Twine.Data.Duration

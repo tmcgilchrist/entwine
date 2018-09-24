@@ -5,10 +5,11 @@
 module Test.IO.Twine.Loop where
 
 import           Control.Concurrent.Async (async)
+import           Control.Monad.Trans.Either (runEitherT)
 
-import           Disorder.Core.IO
+import           Test.Disorder
 
-import           P
+import           Twine.P
 
 import           Test.QuickCheck
 
@@ -16,8 +17,6 @@ import           Twine.Async (waitWithTimeout)
 import           Twine.Data.Gate
 import           Twine.Data.Duration (milliseconds, seconds)
 import           Twine.Loop
-
-import           X.Control.Monad.Trans.Either (runEitherT)
 
 prop_loop = testIO $ do
   g <- newGate

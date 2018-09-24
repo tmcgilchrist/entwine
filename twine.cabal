@@ -1,22 +1,32 @@
-name:                  ambiata-twine
+name:                  twine
 version:               0.0.1
-license:               Apache-2.0
+license:               BSD3
 license-file:          LICENSE
 author:                Ambiata <info@ambiata.com>
-maintainer:            Ambiata <info@ambiata.com>
+maintainer:            Tim McGilchrist <timmcgil@gmail.com>
+homepage:              https://github.com/tmcgilchrist/twine
+bug-reports:           https://github.com/tmcgilchrist/twine/issues
 copyright:             (c) 2015 Ambiata.
-synopsis:              twine
+synopsis:              twine - Concurrency tools
 category:              System
 cabal-version:         >= 1.8
 build-type:            Simple
-description:           twine.
+description:           twine - Concurrency tools
+
+tested-with: GHC == 8.0.2, GHC == 8.2.2
+extra-source-files:
+  README.md
+  Changes.md
+
+source-repository head
+    type:             git
+    location:         https://github.com/tmcgilchrist/twine.git
 
 library
   build-depends:
                        base                            >= 3          && < 5
-                     , ambiata-p
-                     , ambiata-x-eithert
                      , async                           >= 2.0        && < 2.2
+                     , containers                      >= 0.5        && < 0.7
                      , exceptions                      >= 0.6        && < 0.9
                      , monad-loops                     == 0.4.*
                      , SafeSemaphore                   == 0.10.*
@@ -24,6 +34,7 @@ library
                      , text                            == 1.2.*
                      , time                            >= 1.4        && < 1.9
                      , transformers                    >= 0.3        && < 0.6
+                     , transformers-either             == 0.1.*
 
   ghc-options:
                        -Wall
@@ -44,6 +55,7 @@ library
                        Twine.Data.Queue
                        Twine.Loop
                        Twine.Parallel
+                       Twine.P
                        Twine.Snooze
                        Twine.Guard
 
@@ -52,23 +64,23 @@ test-suite test
 
   main-is:             test.hs
 
-  ghc-options:         -Wall -threaded -O2
+  ghc-options:         -Wall
 
   hs-source-dirs:
                        test
 
   build-depends:
                        base                            >= 3          && < 5
-                     , ambiata-twine
-                     , ambiata-disorder-core
-                     , ambiata-p
-                     , ambiata-x-eithert
-                     , async                           >= 2.0        && < 2.2
+                     , twine
+                     , async                           >= 2.0        && < 2.3
+                     , directory                       >= 1.2        && < 1.4
                      , exceptions                      >= 0.6        && < 0.9
+                     , process                         >= 1.2        && < 1.7
                      , text                            == 1.2.*
                      , time
                      , transformers                    >= 0.3        && < 0.6
-                     , QuickCheck                      == 2.8.*
+                     , transformers-either             == 0.1.*
+                     , QuickCheck                      == 2.10.*
                      , quickcheck-instances            == 0.3.*
 
 test-suite test-io
@@ -76,22 +88,22 @@ test-suite test-io
 
   main-is:             test-io.hs
 
-  ghc-options:         -Wall -threaded -O2
+  ghc-options:         -Wall
 
   hs-source-dirs:
                        test
 
   build-depends:
                        base                            >= 3          && < 5
-                     , ambiata-twine
-                     , ambiata-disorder-core
-                     , ambiata-p
-                     , ambiata-x-eithert
-                     , async                           >= 2.0        && < 2.2
+                     , twine
+                     , async                           >= 2.0        && < 2.3
+                     , directory                       >= 1.2        && < 1.4
                      , exceptions
+                     , process                         >= 1.2        && < 1.7
                      , text
                      , time
-                     , QuickCheck                      == 2.8.*
+                     , transformers-either
+                     , QuickCheck                      == 2.10.*
                      , quickcheck-instances            == 0.3.*
 
 benchmark bench
@@ -100,10 +112,10 @@ benchmark bench
   ghc-options:         -Wall -threaded -O2
   hs-source-dirs:      test
   build-depends:       base
-                     , ambiata-twine
-                     , ambiata-p
-                     , ambiata-x-eithert
-                     , criterion                       == 1.1.*
+                     , twine
+                     , criterion                       >= 1.2        && < 1.6
+                     , directory                       >= 1.2        && < 1.4
+                     , process                         >= 1.2        && < 1.7
                      , QuickCheck
                      , quickcheck-instances            == 0.3.*
                      , quickcheck-properties           == 0.1.*
@@ -111,3 +123,4 @@ benchmark bench
                      , random
                      , text
                      , transformers
+                     , transformers-either            

@@ -1,9 +1,0 @@
-[submodule "lib/disorder"]
-	path = lib/disorder
-	url = git@github.com:ambiata/disorder.hs
-[submodule "lib/p"]
-	path = lib/p
-	url = git@github.com:ambiata/p
-[submodule "lib/x"]
-	path = lib/x
-	url = git@github.com:ambiata/x

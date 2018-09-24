@@ -1,14 +1,13 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE TemplateHaskell #-}
-{-# LANGUAGE TemplateHaskell #-}
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
 module Test.IO.Twine.Snooze where
 
 import           Data.Time
 
-import           Disorder.Core.IO
+import           Test.Disorder
 
-import           P
+import           Twine.P
 
 import           System.IO
 

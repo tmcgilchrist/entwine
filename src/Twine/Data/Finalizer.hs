@@ -3,7 +3,7 @@ module Twine.Data.Finalizer (
     Finalizer (..)
   ) where
 
-import           P
+import           Twine.P
 
 import           System.IO
 
@@ -16,8 +16,16 @@ newtype Finalizer =
       finalize :: IO ()
     }
 
+instance Semigroup Finalizer where
+  {-# INLINE (<>) #-}
+  (<>) (Finalizer a) (Finalizer b) =
+    Finalizer $ a >> b
+
 instance Monoid Finalizer where
+  {-# INLINE mempty #-}
   mempty =
     Finalizer $ pure ()
+
+  {-# INLINE mappend #-}
   mappend (Finalizer a) (Finalizer b) =
     Finalizer $ a >> b

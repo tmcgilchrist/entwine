@@ -3,9 +3,9 @@
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
 module Test.Twine.Data.Gate where
 
-import           Disorder.Core.IO
+import           Test.Disorder (testIO)
 
-import           P
+import           Twine.P
 
 import           Test.QuickCheck
 

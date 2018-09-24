@@ -6,10 +6,11 @@ module Test.Twine.Parallel where
 import           Control.Concurrent.MVar
 import           Control.Monad.Catch
 import           Control.Monad.IO.Class
+import           Control.Monad.Trans.Either
 
-import           Disorder.Core.IO
+import           Test.Disorder (testIO)
 
-import           P
+import           Twine.P
 
 import           System.IO
 import           System.IO.Error
@@ -18,8 +19,6 @@ import           Test.QuickCheck
 
 import           Twine.Data
 import           Twine.Parallel
-
-import           X.Control.Monad.Trans.Either
 
 data Fail =
   IFailed

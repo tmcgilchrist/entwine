@@ -4,12 +4,11 @@
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
 module Test.Twine.Data.Queue where
 
-import           Disorder.Core.IO
-
-import           P
+import           Twine.P
 
 import           System.IO
 
+import           Test.Disorder
 import           Test.QuickCheck
 import           Test.QuickCheck.Instances ()
 
@@ -30,7 +29,6 @@ prop_try_read_non_blocking = testIO $ do
   q <- newQueue 1
   m <- tryReadQueue q
   pure $ m === (Nothing :: Maybe Int)
-
 
 return []
 tests :: IO Bool

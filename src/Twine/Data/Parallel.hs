@@ -17,7 +17,7 @@ module Twine.Data.Parallel (
 import           Control.Concurrent.Async (Async, cancel, wait)
 import           Control.Concurrent.MVar
 
-import           P
+import           Twine.P
 
 import           System.IO
 
