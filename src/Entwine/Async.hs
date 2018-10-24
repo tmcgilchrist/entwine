@@ -1,6 +1,7 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE LambdaCase #-}
 module Entwine.Async (
     AsyncTimeout (..)
   , renderAsyncTimeout
@@ -10,10 +11,9 @@ module Entwine.Async (
 
 
 import           Control.Concurrent.Async (Async, waitSTM, waitEither)
-import           Control.Concurrent.Async (async, cancel, wait)
+import           Control.Concurrent.Async (async, cancel, wait, AsyncCancelled)
 import           Control.Concurrent.STM (atomically, orElse, retry)
-import           Control.Exception.Base (AsyncException (..))
-import           Control.Monad.Catch (catch, throwM)
+import           Control.Monad.Catch (catches, throwM, Handler(..))
 import           Control.Monad.IO.Class (liftIO)
 import           Control.Monad.Trans.Either
 
@@ -51,18 +51,10 @@ waitWithTimeout a d = do
       liftIO $ writeIORef r True
       liftIO $ cancel a
       (liftIO $ wait a)
-        `catch`
-          (\(ae :: AsyncException) ->
-            case ae of
-              ThreadKilled -> do
-                liftIO (readIORef r) >>=
-                  bool (liftIO $ throwM ae) (left $ AsyncTimeout d)
-              StackOverflow ->
-                liftIO $ throwM ae
-              HeapOverflow ->
-                liftIO $ throwM ae
-              UserInterrupt ->
-                liftIO $ throwM ae)
+        `catches` [ Handler (\ (ax :: AsyncCancelled) -> do
+                                liftIO (readIORef r) >>=
+                                  bool (liftIO $ throwM ax) (left $ AsyncTimeout d)
+                            )]
 
 waitEitherBoth :: Async a -> Async b -> Async c -> IO (Either a (b, c))
 waitEitherBoth a b c =
