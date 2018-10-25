@@ -13,7 +13,7 @@ cabal-version:         >= 1.8
 build-type:            Simple
 description:           entwine - Concurrency tools
 
-tested-with: GHC == 8.0.2, GHC == 8.2.2
+tested-with: GHC == 8.0.2, GHC == 8.2.2, GHC == 8.4.4
 extra-source-files:
   README.md
   Changes.md
@@ -25,7 +25,7 @@ source-repository head
 library
   build-depends:
                        base                            >= 3          && < 5
-                     , async                           >= 2.0        && < 2.2
+                     , async                           == 2.2.*
                      , containers                      >= 0.5        && < 0.7
                      , exceptions                      >= 0.6        && < 0.9
                      , monad-loops                     == 0.4.*
@@ -69,10 +69,21 @@ test-suite test
   hs-source-dirs:
                        test
 
+  other-modules:       Test.Disorder
+                       Test.Entwine.Async
+                       Test.Entwine.Data.Duration
+                       Test.Entwine.Data.Finalizer
+                       Test.Entwine.Data.Gate
+                       Test.Entwine.Data.Parallel
+                       Test.Entwine.Data.Pin
+                       Test.Entwine.Data.Queue
+                       Test.Entwine.Parallel
+
+
   build-depends:
                        base                            >= 3          && < 5
                      , entwine
-                     , async                           >= 2.0        && < 2.3
+                     , async                           == 2.2.*
                      , directory                       >= 1.2        && < 1.4
                      , exceptions                      >= 0.6        && < 0.9
                      , process                         >= 1.2        && < 1.7
@@ -82,6 +93,7 @@ test-suite test
                      , transformers-either             == 0.1.*
                      , QuickCheck                      == 2.10.*
                      , quickcheck-instances            == 0.3.*
+
 
 test-suite test-io
   type:                exitcode-stdio-1.0
@@ -93,10 +105,15 @@ test-suite test-io
   hs-source-dirs:
                        test
 
+  other-modules:       Test.Disorder
+                       Test.IO.Entwine.Guard
+                       Test.IO.Entwine.Loop
+                       Test.IO.Entwine.Snooze
+
   build-depends:
                        base                            >= 3          && < 5
                      , entwine
-                     , async                           >= 2.0        && < 2.3
+                     , async                           == 2.2.*
                      , directory                       >= 1.2        && < 1.4
                      , exceptions
                      , process                         >= 1.2        && < 1.7
