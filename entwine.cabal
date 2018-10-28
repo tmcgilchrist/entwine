@@ -11,7 +11,7 @@ synopsis:              entwine - Concurrency tools
 category:              System
 cabal-version:         >= 1.8
 build-type:            Simple
-description:           entwine - Concurrency tools
+description:           Entwine provides concurrency types and tools for building correct software.
 
 tested-with: GHC == 8.0.2, GHC == 8.2.2, GHC == 8.4.4
 extra-source-files:
