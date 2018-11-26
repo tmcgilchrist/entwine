@@ -1,7 +1,9 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 module Entwine.Guard (
+  -- * Types
     TerminationAction (..)
   , TerminationHandler (..)
+  -- * Functions
   , guarded
   , repeatedly
   ) where

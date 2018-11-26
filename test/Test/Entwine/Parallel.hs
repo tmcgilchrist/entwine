@@ -79,9 +79,15 @@ prop_empty_producer = testIO $ do
       work = const $ pure ()
 
   r <- runEitherT $ consume_ pro 1 work
-  pure $ (isRight r) === True
+  pure $ isRight r === True
 
+prop_empty_producer_consume = testIO $ do
+  let pro = const . pure . Right $ (1 :: Int)
+      work = const . pure . Right $ (1 :: Int)
+
+  r <- runEitherT $ consume pro 1 work
+  pure $ isRight r === True
 
 return []
 tests :: IO Bool
-tests = $quickCheckAll
+tests = $forAllProperties $ quickCheckWithResult (stdArgs { maxSuccess = 10 })

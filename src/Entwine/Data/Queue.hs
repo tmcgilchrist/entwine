@@ -15,8 +15,16 @@ import           GHC.Conc (atomically)
 
 import           Entwine.P
 
-import           System.IO
+import           System.IO (IO)
 
+-- |
+--
+-- A queue is an abstract type, representing a simple bounded FIFO channel
+-- that can only have its state queried in a non-blocking manner.
+--
+-- This useful for implementing things like passing data between a
+-- producer and consumer process with back presure.
+--
 newtype Queue a =
   Queue {
       queue :: TBQueue a

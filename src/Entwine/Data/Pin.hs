@@ -1,17 +1,20 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 module Entwine.Data.Pin (
+  -- * Types
     Pin
+  -- * Functions
   , newPin
   , checkPin
   , waitForPin
   , pullPin
   ) where
 
-import           Control.Concurrent.MVar
+import           Control.Concurrent.MVar (MVar, newEmptyMVar, tryTakeMVar
+                                         , readMVar, tryPutMVar)
 
 import           Entwine.P
 
-import           System.IO
+import           System.IO (IO)
 
 -- |
 -- A pin is an abstract type, representing a simple barrier

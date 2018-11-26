@@ -54,8 +54,8 @@ library
                        Entwine.Data.Pin
                        Entwine.Data.Queue
                        Entwine.Loop
-                       Entwine.Parallel
                        Entwine.P
+                       Entwine.Parallel
                        Entwine.Snooze
                        Entwine.Guard
 

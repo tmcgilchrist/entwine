@@ -5,7 +5,7 @@ module Entwine.Data.Finalizer (
 
 import           Entwine.P
 
-import           System.IO
+import           System.IO (IO)
 
 
 -- |
