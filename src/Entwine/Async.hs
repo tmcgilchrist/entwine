@@ -25,7 +25,7 @@ import           Entwine.Snooze
 
 import           System.IO (IO)
 
-data AsyncTimeout =
+newtype AsyncTimeout =
   AsyncTimeout Duration
   deriving (Eq, Show)
 
@@ -46,12 +46,12 @@ waitWithTimeout a d = do
   e <- liftIO $ waitEither a s
   case e of
     Left a' ->
-      pure $ a'
+      pure a'
     Right _ -> do
       liftIO $ writeIORef r True
       liftIO $ cancel a
       (liftIO $ wait a)
-        `catches` [ Handler (\ (ax :: AsyncCancelled) -> do
+        `catches` [ Handler (\ (ax :: AsyncCancelled) ->
                                 liftIO (readIORef r) >>=
                                   bool (liftIO $ throwM ax) (left $ AsyncTimeout d)
                             )]

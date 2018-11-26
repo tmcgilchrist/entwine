@@ -1,6 +1,8 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 module Entwine.Data.Duration (
+  -- * Types
     Duration
+  -- * Functions
   , microseconds
   , milliseconds
   , seconds

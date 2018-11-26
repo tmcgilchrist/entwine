@@ -1,16 +1,18 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 module Entwine.Snooze (
     snooze
-  , module Entwine.Data.Duration
+  , module X
   ) where
 
-import           Control.Concurrent
+import           Control.Concurrent (threadDelay)
 
 import           Entwine.P
-import           Entwine.Data.Duration
+import           Entwine.Data.Duration as X
 
 import           System.IO (IO)
 
+-- | Snooze for a short duration
+--
 snooze :: Duration -> IO ()
 snooze =
   threadDelay . toMicroseconds

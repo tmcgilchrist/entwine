@@ -1,6 +1,8 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 module Entwine.Data.Gate (
+  -- * Types
     Gate
+  -- * Functions
   , newGate
   , isOpen
   , close
@@ -10,7 +12,7 @@ import           Data.IORef (IORef, newIORef, readIORef, atomicWriteIORef)
 
 import           Entwine.P
 
-import           System.IO
+import           System.IO (IO)
 
 -- |
 -- A gate is an abstract type, representing a simple barrier

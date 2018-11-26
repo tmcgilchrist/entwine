@@ -1,13 +1,15 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE ExplicitForAll #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE PatternSynonyms #-}
 module Entwine.Parallel (
+  -- * Types
     RunError (..)
+  -- * Functions
   , renderRunError
-  , consume_
   , consume
+  , consume_
   , waitEitherBoth
   ) where
 
@@ -17,26 +19,27 @@ import           Control.Concurrent.Async (async, cancel, poll, waitBoth, wait, 
 import           Control.Concurrent.MSem (new, signal)
 import qualified Control.Concurrent.MSem as M
 import           Control.Concurrent.MVar (newEmptyMVar, takeMVar, putMVar)
-import           Control.Monad.Catch
-import           Control.Monad.IO.Class
+import           Control.Monad.Catch (Exception(..), SomeException, catch, catchAll, finally, throwM)
+import           Control.Monad.IO.Class (liftIO)
 import           Control.Monad.Loops (untilM_)
-import           Control.Monad.Trans.Either
+import           Control.Monad.Trans.Either (EitherT, pattern EitherT, runEitherT, bimapEitherT)
 
 import qualified Data.Text as T
-import           Data.Typeable
+import           Data.Typeable (Typeable)
 
 import           Entwine.Async (waitEitherBoth)
 import           Entwine.Data.Parallel
 import           Entwine.Data.Queue
 import           Entwine.P
 
-import           System.IO
+import           System.IO (IO)
 
 -- | Provide a producer and an action to be run across the result
 --   of that producer in parallel.
---
+--   For a version that doesn't ignore the results see 'Entwine.Parallel.consume'.
 --
 --   Common usage:
+--
 --   @
 --     let producer :: Address -> Queue Address -> IO ()
 --         producer prefix q =
@@ -67,7 +70,7 @@ consume_ pro fork action = EitherT . liftIO $ do
        threadDelay 1000 {-- 1 ms --}
        p <- poll producer
        e <- isQueueEmpty q
-       pure $ (isJust p) && e
+       pure $ isJust p && e
 
   submitter <- async $ untilM_ spawn check
 
@@ -82,7 +85,7 @@ consume_ pro fork action = EitherT . liftIO $ do
         waitForWorkers workers
         pure i
 
-  (waiter >>= \i -> getResult result >>= pure . second (const $ i))
+  (waiter >>= \i -> getResult result >>= pure . second (const i))
     `catchAll` (\z ->
       failWorkers workers >>
         getResult result >>= \w ->
@@ -106,8 +109,23 @@ data EarlyTermination =
 
 instance Exception EarlyTermination
 
-consume :: forall a b c e . (Queue a -> IO b) -> Int -> (a -> IO (Either e c)) -> IO (Either (RunError e) (b, [c]))
-consume pro fork action = flip catchAll (pure . Left . BlowUpError) $ do
+-- | Provide a producer and an action to be run across the results
+--   of that producer in parallel and collect the results.
+--   For a version that ignores the results see 'Entwine.Parallel.consume_'.
+--
+--   Common usage:
+--
+--  @
+--     let producer :: Address -> Queue Address -> IO Int
+--         producer prefix q =
+--           list' prefix $$ writeQueue q
+--
+--     consume producer 100 (\(a :: Address) -> doThis)
+--  @
+--
+consume :: MonadIO m => (Queue b -> IO a) -> Int -> (b -> IO (Either e c))
+        -> m (Either (RunError e) (a, [c]))
+consume pro fork action = liftIO . flip catchAll (pure . Left . BlowUpError) $ do
   q <- newQueue fork -- not fork
   producer <- async $ pro q
   workers <- (emptyWorkers :: IO (Workers c))
@@ -136,7 +154,7 @@ consume pro fork action = flip catchAll (pure . Left . BlowUpError) $ do
        threadDelay 1000 {-- 1 ms --}
        p <- poll producer
        e <- isQueueEmpty q
-       pure $ (isJust p) && e
+       pure $ isJust p && e
 
   submitter <- async $ untilM_ spawn check
 
@@ -145,8 +163,8 @@ consume pro fork action = flip catchAll (pure . Left . BlowUpError) $ do
 
         ws <- liftIO $ getWorkers workers
         ii <- mapM (bimapEitherT WorkerError id . EitherT . waitEither terminator) ws
-        pure $ (i, ii)
+        pure (i, ii)
 
   waiter `catch` (\(_ :: EarlyTermination) ->
     failWorkers workers >>
-      (Left . WorkerError) <$> wait terminator)
+      Left . WorkerError <$> wait terminator)
