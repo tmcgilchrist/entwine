@@ -1,7 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE NoImplicitPrelude #-}
 import           Control.Concurrent
-import           Control.Monad.IO.Class (liftIO)
 import           Control.Monad.Trans.Either
 
 import           Criterion.Main
@@ -9,7 +8,6 @@ import           Criterion.Types (Config (..))
 
 import           Entwine.Data
 import           Entwine.Parallel
-
 import           Entwine.P
 
 import           System.IO

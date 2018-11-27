@@ -14,8 +14,7 @@ import           Control.Concurrent.Async (Async, waitSTM, waitEither)
 import           Control.Concurrent.Async (async, cancel, wait, AsyncCancelled)
 import           Control.Concurrent.STM (atomically, orElse, retry)
 import           Control.Monad.Catch (catches, throwM, Handler(..))
-import           Control.Monad.IO.Class (liftIO)
-import           Control.Monad.Trans.Either
+import           Control.Monad.Trans.Either (EitherT, left)
 
 import           Data.IORef (newIORef, readIORef, writeIORef)
 import qualified Data.Text as T
