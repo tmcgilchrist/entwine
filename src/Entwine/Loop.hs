@@ -4,8 +4,6 @@ module Entwine.Loop (
     loop
   ) where
 
-import           Control.Monad.IO.Class (MonadIO, liftIO)
-
 import           Entwine.Data.Gate
 import           Entwine.Data.Duration
 import           Entwine.P

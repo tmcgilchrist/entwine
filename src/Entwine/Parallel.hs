@@ -20,7 +20,6 @@ import           Control.Concurrent.MSem (new, signal)
 import qualified Control.Concurrent.MSem as M
 import           Control.Concurrent.MVar (newEmptyMVar, takeMVar, putMVar)
 import           Control.Monad.Catch (Exception(..), SomeException, catch, catchAll, finally, throwM)
-import           Control.Monad.IO.Class (liftIO)
 import           Control.Monad.Loops (untilM_)
 import           Control.Monad.Trans.Either (EitherT, pattern EitherT, runEitherT, bimapEitherT)
 
