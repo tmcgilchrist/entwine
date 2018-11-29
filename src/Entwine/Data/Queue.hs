@@ -8,12 +8,14 @@ module Entwine.Data.Queue (
   , isQueueEmpty
   ) where
 
-import           Control.Concurrent.STM.TBQueue ( TBQueue, newTBQueue, tryReadTBQueue
-                                                , readTBQueue, writeTBQueue, isEmptyTBQueue)
+import           Control.Concurrent.STM.TBQueue (TBQueue, isEmptyTBQueue, newTBQueue, readTBQueue, tryReadTBQueue,
+                                                 writeTBQueue)
+
+import           Entwine.P
 
 import           GHC.Conc (atomically)
 
-import           Entwine.P
+import           Numeric.Natural (Natural)
 
 import           System.IO (IO)
 
@@ -30,7 +32,7 @@ newtype Queue a =
       queue :: TBQueue a
     }
 
-newQueue :: Int -> IO (Queue a)
+newQueue :: Natural -> IO (Queue a)
 newQueue i =
   atomically $ Queue <$> newTBQueue i
 

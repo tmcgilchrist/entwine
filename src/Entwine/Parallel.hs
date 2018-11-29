@@ -1,8 +1,8 @@
+{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE PatternSynonyms #-}
+{-# LANGUAGE ScopedTypeVariables #-}
 module Entwine.Parallel (
   -- * Types
     RunError (..)
@@ -15,13 +15,13 @@ module Entwine.Parallel (
 
 
 import           Control.Concurrent (threadDelay)
-import           Control.Concurrent.Async (async, cancel, poll, waitBoth, wait, waitEither)
+import           Control.Concurrent.Async (async, cancel, poll, wait, waitBoth, waitEither)
 import           Control.Concurrent.MSem (new, signal)
 import qualified Control.Concurrent.MSem as M
-import           Control.Concurrent.MVar (newEmptyMVar, takeMVar, putMVar)
-import           Control.Monad.Catch (Exception(..), SomeException, catch, catchAll, finally, throwM)
+import           Control.Concurrent.MVar (newEmptyMVar, putMVar, takeMVar)
+import           Control.Monad.Catch (Exception (..), SomeException, catch, catchAll, finally, throwM)
 import           Control.Monad.Loops (untilM_)
-import           Control.Monad.Trans.Either (EitherT, pattern EitherT, runEitherT, bimapEitherT)
+import           Control.Monad.Trans.Either (EitherT, pattern EitherT, bimapEitherT, runEitherT)
 
 import qualified Data.Text as T
 import           Data.Typeable (Typeable)
@@ -30,6 +30,8 @@ import           Entwine.Async (waitEitherBoth)
 import           Entwine.Data.Parallel
 import           Entwine.Data.Queue
 import           Entwine.P
+
+import           Numeric.Natural (Natural)
 
 import           System.IO (IO)
 
@@ -47,7 +49,7 @@ import           System.IO (IO)
 --     consume producer 100 (\(a :: Address) -> doThis)
 --   @
 --
-consume_ :: MonadIO m => (Queue b -> IO a) -> Int -> (b -> EitherT e IO ()) -> EitherT (RunError e) m a
+consume_ :: MonadIO m => (Queue b -> IO a) -> Natural -> (b -> EitherT e IO ()) -> EitherT (RunError e) m a
 consume_ pro fork action = EitherT . liftIO $ do
   q <- newQueue fork
 
@@ -122,7 +124,7 @@ instance Exception EarlyTermination
 --     consume producer 100 (\(a :: Address) -> doThis)
 --  @
 --
-consume :: MonadIO m => (Queue b -> IO a) -> Int -> (b -> IO (Either e c))
+consume :: MonadIO m => (Queue b -> IO a) -> Natural -> (b -> IO (Either e c))
         -> m (Either (RunError e) (a, [c]))
 consume pro fork action = liftIO . flip catchAll (pure . Left . BlowUpError) $ do
   q <- newQueue fork -- not fork
