@@ -1,3 +1,6 @@
+* 0.0.3
+ - Add support for 7.10 back
+
 * 0.0.2
  - Update async to 2.2. This version of async changed the exceptions thrown, see
    https://hackage.haskell.org/package/async-2.2/changelog for more details.

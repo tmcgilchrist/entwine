@@ -1,5 +1,5 @@
 name:                  entwine
-version:               0.0.2
+version:               0.0.3
 license:               BSD3
 license-file:          LICENSE
 author:                Ambiata <info@ambiata.com>
@@ -26,12 +26,14 @@ library
   build-depends:
                        base                            >= 3          && < 5
                      , async                           == 2.2.*
+                     , clock                           >= 0.6        && < 0.8
                      , containers                      >= 0.5        && < 0.7
                      , exceptions                      >= 0.6        && < 0.9
                      , monad-loops                     == 0.4.*
+                     , retry
                      , SafeSemaphore                   == 0.10.*
                      , semigroups                      == 0.18.*
-                     , stm                             == 2.4.*
+                     , stm                             == 2.5.*
                      , text                            == 1.2.*
                      , time                            >= 1.4        && < 1.9
                      , transformers                    >= 0.3        && < 0.6
