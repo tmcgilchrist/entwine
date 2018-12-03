@@ -4,7 +4,7 @@
 module Test.IO.Entwine.Guard where
 
 import           Control.Concurrent
-import           Control.Monad.Catch
+import           Control.Monad.Catch hiding (onError)
 import           Control.Monad.Trans.Either
 
 import           Test.Disorder

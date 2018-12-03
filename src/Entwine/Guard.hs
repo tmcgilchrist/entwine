@@ -8,7 +8,7 @@ module Entwine.Guard (
   , repeatedly
   ) where
 
-import           Control.Monad.Catch
+import           Control.Monad.Catch hiding (onError)
 import           Control.Monad.Trans.Class
 import           Control.Monad.Trans.Either
 
