@@ -1,5 +1,5 @@
 name:                  entwine
-version:               0.0.3
+version:               0.0.4
 license:               BSD3
 license-file:          LICENSE
 author:                Ambiata <info@ambiata.com>
@@ -13,7 +13,7 @@ cabal-version:         >= 1.8
 build-type:            Simple
 description:           Entwine provides concurrency types and tools for building correct software.
 
-tested-with: GHC == 7.10.3, GHC == 8.0.2, GHC == 8.2.2, GHC == 8.4.4
+tested-with: GHC == 7.10.3, GHC == 8.0.2, GHC == 8.2.2, GHC == 8.4.4, GHC == 8.6.2
 extra-source-files:
   README.md
   Changes.md
