@@ -60,6 +60,7 @@ library
                        Entwine.P
                        Entwine.Parallel
                        Entwine.Snooze
+                       Entwine.Supervisor
                        Entwine.Guard
 
 test-suite test
