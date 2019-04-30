@@ -1,3 +1,7 @@
+* 0.0.4
+ - Add support for 8.6
+ - Increase upper bounds on exceptions
+
 * 0.0.3
  - Add support for 7.10
  - Upgrades STM version to 2.5 (which made changes in their API from Int to Natural for some parameters)
